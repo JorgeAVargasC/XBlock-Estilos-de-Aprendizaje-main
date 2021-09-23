@@ -1,0 +1,22 @@
+.bd-callout {
+    padding: 0.8rem;
+    margin-top: 1.25rem;
+    margin-bottom: 1.25rem;
+    border: 1px solid #e9ecef;
+    border-left-width: .25rem;
+    border-radius: .25rem;
+}
+
+select{
+    cursor: pointer;
+}
+
+.bd-callout-info,select {
+    transition-duration: 0.2s;
+    border-left-color: #0d6efd;
+}
+
+.bd-callout-info:hover,select:hover {
+    transition-duration: 0.2s;
+    border-color: #0d6efd;
+}
