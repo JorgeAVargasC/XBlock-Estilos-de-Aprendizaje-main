@@ -16,26 +16,51 @@ function ReglasEstudiante(runtime, element) {
                 
                 if (data.test_result) {
                     var resultado = data.test_result.result
-                    resultado = resultado.replace("<br>"," ").split(" ")
+                    resultado = resultado.replaceAll("<br>"," ").split(" ")
+                    
+                    //console.table(resultado);
 
-                    var dim1=resultado[11]
-                    var dim2=resultado[15]
+                    var dim1=resultado[12]
+                    var dim2=resultado[17]
                     var dim3=resultado[2]
                     var dim4=resultado[7]
 
-                    tag = dim1+"-"+dim2+"-"+dim3+"-"+dim4
-                    tag = tag.toLowerCase()
+                    if(resultado[0]=="Equilibrio"){
+                        dim3="Equilibrio";
+                    }                        
 
+                    if(resultado[5]=="Equilibrio"){
+                        dim4="Equilibrio";
+                    }
+
+                    if(resultado[10]=="Equilibrio"){
+                        dim1="Equilibrio";
+                    }
+
+                    if(resultado[15]=="Equilibrio"){
+                        dim2="Equilibrio";
+                    }         
+                              
                     var selector1 = document.getElementById("selector1")
                     var selector2 = document.getElementById("selector2")
                     var selector3 = document.getElementById("selector3")
                     var selector4 = document.getElementById("selector4")
-
+                                
+                    
                     selector1.innerText=dim1
                     selector2.innerText=dim2
                     selector3.innerText=dim3
                     selector4.innerText=dim4
-                    
+
+                    dim1 = dim1.replace("Equilibrio","Ninguno");
+                    dim2 = dim2.replace("Equilibrio","Ninguno");
+                    dim3 = dim3.replace("Equilibrio","Ninguno");
+                    dim4 = dim4.replace("Equilibrio","Ninguno");
+
+                    tag = dim1+"-"+dim2+"-"+dim3+"-"+dim4
+                    tag = tag.toLowerCase()
+                    //console.log(tag);
+
                     // Displays result
                     $("#resultados-test").append(tag)
 

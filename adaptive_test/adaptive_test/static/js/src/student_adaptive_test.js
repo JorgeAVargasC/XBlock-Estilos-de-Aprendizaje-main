@@ -163,7 +163,7 @@ function StudentAdaptiveTestXBlock(runtime, element) {
                     $("#submit-test").attr("disabled", true);
 
                     // Displays result
-                    $("#test").append('<p> Tu test ha revelado que eres: <br><b>' + result.result + '</b>.</br>.</p>')
+                    $("#test").append('<p> Tu test ha revelado que eres: <br>' + result.result + '</br></p>')
                     // send test results to the python file, so they can be uploaded to database
                     $.ajax({
                         type: "POST",
