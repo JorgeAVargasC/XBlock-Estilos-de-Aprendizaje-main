@@ -158,6 +158,7 @@ function ReglasEstudiante(runtime, element) {
             data: "null",
             dataType: 'json',
             success: function(data){
+                console.table(data)
                 setTimeout(function(){
                     var resources_list = document.getElementById('resources_allowed')
                     resources_list.innerHTML = ''
