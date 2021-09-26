@@ -249,7 +249,9 @@ function StudioAnalyticsXBlock(runtime, element) {
                     var grafica4 = document.getElementById('grafico4').getContext('2d');
                     window.pie = new Chart(grafica4, Chartgrafico4);
 
-                
+                    var texto = "El Total de Estudiantes es: ";
+                    var objetivo = document.getElementById('resultado');
+                    objetivo.innerHTML = texto + z;
                                                 
             }
         });
