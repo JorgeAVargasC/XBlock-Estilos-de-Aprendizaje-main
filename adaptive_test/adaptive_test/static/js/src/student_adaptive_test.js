@@ -622,3 +622,8 @@ function StudentAdaptiveTestXBlock(runtime, element) {
         return sum;
     }
 }
+
+document.getElementById("btnVistaEstudiante").addEventListener("click",function(){
+    console.log("Hola");
+    window.location.href="/scenario/adaptive_test.0/vista_reglas_estudiante/"+window.location.search;
+});
