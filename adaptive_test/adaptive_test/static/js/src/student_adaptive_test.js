@@ -261,7 +261,9 @@ function StudentAdaptiveTestXBlock(runtime, element) {
         // This reminds, how to classify multifaceted people
 
         return { result: strQuadrant, result_details: sectionsScore };
-    }		
+    }
+    
+    
 	function getTestInteligencias() {
         const sections = ["A", "B", "C", "D","E", "F", "G"];
         var results = [];
