@@ -124,7 +124,7 @@ Asegurese de tener el entorno virtual activo y el servidor del SDK ejecutándose
 
     <div align="center">
 
-    ![Confirmación en la selección del test](./media/ConfirmacionTest1.png)
+    ![Confirmación en la selección del test](./media/ConfirmaciónTest1.png)
 
     </div>
 
