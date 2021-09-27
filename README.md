@@ -2,7 +2,7 @@
 
 Este XBlock fue creado con el fin de obtener el estilo de aprendizaje de los estudiantes de un curso de OpenEDX, para que el profesor conozca a partir de cualquiera de los test disponibles que material del curso debe subir y se ajuste a cada estilo de aprendizaje de los estudiantes.
 
-Para comprender el funcionamiento de este XBlock, es necesario haber visto la guía de [MyXBlock](https://github.com/J4ckDev/MyXblock) y [XBlockPrueba](https://github.com/J4ckDev/XBlockPrueba).
+Para comprender el funcionamiento de este XBlock, es necesario haber visto la guía de [MyXBlock](https://github.com/J4ckDev/MyXblock).
 
 ## :clipboard: Contenido <!-- omit in toc -->
 
@@ -64,6 +64,11 @@ Los test actualmente implementados están basados en los siguientes modelos:
    - *Holístico:* Aprende compartiendo y escuchando ideas, esto los hace buenos en el trabajo en equipo.
     
     Sí desea conocer más sobre este modelo, puede leer [aquí](https://mattec.matedu.cinvestav.mx/el_calculo/data/docs/P9.bbf0a982b7788f.pdf).
+5. **Modelo de Felder Silverman**: El modelo de Felder Silverman clasifica preferencias de aprendizaje de los estudiantes en una de las categorías de cada una de las siguientes dimensiones: 
+- *Sensorial o intuitiva*: Alumnos sensoriales (concreto, práctico, orientado hacia hechos y procedimientos) o aprendices intuitivos (conceptual, innovadora, orientada hacia las teorías y significados).
+- *Visual o verbal*: Los alumnos visuales (prefieren representaciones visuales de material presentado - imágenes, diagramas, diagramas de flujo) o aprendices verbales (preferir explicaciones escritas y orales).
+- *Activo o reflexivo*: Estudiantes activos (aprenden intentando trabajando con otros) o estudiantes reflexivos (aprender a pensar las cosas, trabajando solo).
+- *Secuencial o global*: Aprendices secuenciales (lineal, ordenada, aprender en pequeños pasos incrementales) o aprendices globales (holísticos, pensadores sistémicos, aprenden en grandes saltos).
 
 ### 1.2. Gestión de la información
 
@@ -80,13 +85,13 @@ Los campos o fields definidos para almacenar los datos son los siguientes:
 |testSolved|`Boolean`|`user_state`|Es una bandera que sirve para controlar cuando el estudiante ha respondido o no el test, si lo ha respondido tendrá un valor `True` en caso contrario `False`.|
 
 #### 1.2.2. Función para cargar un test
-En el archivo [`student_adaptive_test.js`](https://github.com/J4ckDev/XBlock-Estilos-de-Aprendizaje/blob/main/adaptive_test/adaptive_test/static/js/src/student_adaptive_test.js#L10) se definió una función que se ejecutará al finalizar la carga de la vista `student_adaptive_test.html`, para solicitar a la función [`load_test`](https://github.com/J4ckDev/XBlock-Estilos-de-Aprendizaje/blob/main/adaptive_test/adaptive_test/adaptive_test.py#L99) en el archivo `adaptive_test.py`, si se debe cargar o no un test al estudiante.
+En el archivo [`student_adaptive_test.js`](https://github.com/J4ckDev/XBlock-Estilos-de-Aprendizaje/blob/main/adaptive_test/adaptive_test/static/js/src/student_adaptive_test.js#L10) se definió una función que se ejecutará al finalizar la carga de la vista `student_adaptive_test.html`, para solicitar a la función [`load_test`](https://github.com/JorgeAVargasC/XBlock-Estilos-de-Aprendizaje-main/blob/master/adaptive_test/adaptive_test/adaptive_test.py#153) en el archivo `adaptive_test.py`, si se debe cargar o no un test al estudiante.
 
 #### 1.2.3. Función para subir los resultados
-Cuando el estudiante responde un test, una función en el archivo [`student_adaptive_test.js`](https://github.com/J4ckDev/XBlock-Estilos-de-Aprendizaje/blob/main/adaptive_test/adaptive_test/static/js/src/student_adaptive_test.js#L44) captura las respuestas, obtiene el estilo de aprendizaje del estudiante y envía el resultado a la función [`submit_test`](https://github.com/J4ckDev/XBlock-Estilos-de-Aprendizaje/blob/main/adaptive_test/adaptive_test/adaptive_test.py#L143) del archivo `adaptive_test.py`. Luego al estudiante se le muestra que estilo de aprendizaje tiene.
+Cuando el estudiante responde un test, una función en el archivo [`student_adaptive_test.js`](https://github.com/JorgeAVargasC/XBlock-Estilos-de-Aprendizaje-main/blob/master/adaptive_test/adaptive_test/static/js/src/student_adaptive_test.js#L13) captura las respuestas, obtiene el estilo de aprendizaje del estudiante y envía el resultado a la función [`submit_test`](https://github.com/JorgeAVargasC/XBlock-Estilos-de-Aprendizaje-main/blob/master/adaptive_test/adaptive_test/adaptive_test.py#L170) del archivo `adaptive_test.py`. Luego al estudiante se le muestra que estilo de aprendizaje tiene.
 
 #### 1.2.4. Función para mostrar los resultados
-Por último, cuando un profesor desea ver los resultados de todos los estudiantes, la función [`load_analytics`](https://github.com/J4ckDev/XBlock-Estilos-de-Aprendizaje/blob/main/adaptive_test/adaptive_test/adaptive_test.py#L173) es la encargada de retornar todos los valores del campo `testResults` que son procesados por [`studio_analytics.js`](https://github.com/J4ckDev/XBlock-Estilos-de-Aprendizaje/blob/main/adaptive_test/adaptive_test/static/js/src/studio_analytics.js#L8) y mostrados en `studio_analytics.html`.
+Por último, cuando un profesor desea ver los resultados de todos los estudiantes, la función [`load_analytics`](https://github.com/JorgeAVargasC/XBlock-Estilos-de-Aprendizaje-main/blob/master/adaptive_test/adaptive_test/adaptive_test.py#L194) es la encargada de retornar todos los valores del campo `testResults` que son procesados por [`studio_analytics.js`](https://github.com/JorgeAVargasC/XBlock-Estilos-de-Aprendizaje-main/blob/master/adaptive_test/adaptive_test/static/js/src/studio_analytics.js) y mostrados en `studio_analytics.html`.
 
 ## 2. Instalación
 
@@ -111,33 +116,34 @@ Asegurese de tener el entorno virtual activo y el servidor del SDK ejecutándose
 
     <div align="center">
 
-    ![Vista Studio para seleccionar test](./media/VistaStudio.png)
+    ![Vista Studio para seleccionar test](./media/VistaStudio1.png)
 
     </div>
 
-    Cuando elija uno de los test y de click en el botón *Elegir* le aparecerá el sisguiente mensaje de confirmación:
+    Cuando elija uno de los test y de click en el botón *Elegir* se lleva a la vista de Resultados (studio_analytics) del respectivo test:
 
     <div align="center">
 
-    ![Confirmación en la selección del test](./media/ConfirmacionTest.png)
+    ![Confirmación en la selección del test](./media/ConfirmacionTest1.png)
 
     </div>
 
     >**Nota:** Si el profesor más adelante desea seleccionar otro test, lo puede hacer aunque los estudiantes ya hayan respondido el test anteriormente seleccionado.
 
-2. Regrese a la vista de estudiante quitando abriendo el enlace `http://127.0.0.1:8000/scenario/adaptive_test.0/` y responda el test. Sí desea simular otros estudiantes agregue al final del enlace `?student=valor`, donde `valor` es el ID que le va a asignar al estudiante simulado.
+2. Regrese a la vista de estudiante abriendo el enlace `http://127.0.0.1:8000/scenario/adaptive_test.0/` y responda el test. Sí desea simular otros estudiantes agregue al final del enlace `?student=valor`, donde `valor` es el ID que le va a asignar al estudiante simulado.
 
     <div align="center">
 
-    ![Test listo para ser respondido](./media/ResponderTest.png)
+    ![Test listo para ser respondido](./media/ResponderTest1.png)
 
     </div>
 
-    Al finalizar y enviar el cuestionario respondido, el estudiante obtendrá el estilo de aprendizaje que más lo representa.
+    Al finalizar y enviar el cuestionario respondido, el estudiante obtendrá el estilo de aprendizaje que más lo representa con su respectiva gráfica.
 
     <div align="center">
 
-    ![Estilo de aprendizaje calculado](./media/ResultadoTest.png)
+    ![Estilo de aprendizaje calculado](./media/ResultadoTest1.png)
+    ![Estilo de aprendizaje calculado](./media/ResultadoTest2.png)
 
     </div>
 
@@ -145,15 +151,15 @@ Asegurese de tener el entorno virtual activo y el servidor del SDK ejecutándose
 
     <div align="center">
 
-    ![Resultados de los tests](./media/ResultadosTest.png)
+    ![Resultados de los tests](./media/ResultadosTest1.png)
 
     </div>
 
-4. Para el test de Honey Alonso existe la posibilidad de ver un gráfico de pastel para observar los resultados, solo debe dar click en el botón *Mostrar Gráfico* y podrá mirar lo siguiente:
+4. Para el test de Felder Silverman existe la posibilidad de ver un gráfico de pastel para observar los resultados, solo debe dar click en el botón *Mostrar Gráfico* y podrá mirar lo siguiente:
 
     <div align="center">
 
-    ![Gráfico de pastel](./media/Grafico.png)
+    ![Gráfico de pastel](./media/Grafico1.png)
 
     </div>
 
