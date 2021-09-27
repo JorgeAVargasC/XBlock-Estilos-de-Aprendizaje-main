@@ -163,4 +163,4 @@ Asegurese de tener el entorno virtual activo y el servidor del SDK ejecutándose
 
     </div>
 
-Es importante mencionar que este XBlock solo funciona en el XBlock SDK porque al instalalarlo en OpenEDX se obtuvieron errores de visualización que no permitieron que funcionara correctamente.
+Es importante mencionar que este XBlock solo funciona en el XBlock SDK porque no fue posible instalarlo en OpenEDX.
